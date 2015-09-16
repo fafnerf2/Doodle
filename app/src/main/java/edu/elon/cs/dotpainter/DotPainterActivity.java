@@ -13,9 +13,13 @@ import android.view.MenuItem;
  */
 public class DotPainterActivity extends Activity {
 
+
+
     public final static int WIDTH_DIALOG = 1;
+    public final static int COLOR_DIALOG = 1;
 
     private DoodleView doodleView;
+    private SetColorDialog setColor3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,12 @@ public class DotPainterActivity extends Activity {
             return true;
         }
 
+        if (id == R.id.action_setcolor) {
+            Intent intent = new Intent(this, SetColorDialog.class);
+            intent.putExtra("color", setColor3.doSomethingWithColor());
+            startActivityForResult(intent, COLOR_DIALOG);
+
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -57,6 +67,12 @@ public class DotPainterActivity extends Activity {
                 // get the new pen width and tell the DoodleView
                 int width = data.getIntExtra("width", doodleView.getPenWidth());
                 doodleView.setPenWidth(width);
+            }
+        }
+        if (requestCode == COLOR_DIALOG) {
+            if (resultCode == RESULT_OK) {
+                int color = data.getIntExtra("color", setColor3.doSomethingWithColor());
+                setColor3.doSomethingWithColor();
             }
         }
     }

@@ -10,13 +10,13 @@ import android.graphics.Paint;
  */
 public class Dot {
 
-    private float x, y;
+    private float x0, y0, x1, y1;
     private int penWidth;
     private Paint paint;
 
-    public Dot(float x, float y, int penWidth) {
-        this.x = x;
-        this.y = y;
+    public Dot(float x0, float y0, int penWidth) {
+        this.x0 = x0;
+        this.y0 = y0;
 
         this.penWidth = penWidth;
 
@@ -30,7 +30,7 @@ public class Dot {
     }
 
     public void draw(Canvas canvas) {
-        canvas.drawCircle(x, y, penWidth, paint);
+        canvas.drawCircle(x0, y0, penWidth, paint);
     }
 
 }

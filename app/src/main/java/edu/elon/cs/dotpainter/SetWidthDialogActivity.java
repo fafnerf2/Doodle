@@ -44,6 +44,7 @@ public class SetWidthDialogActivity extends Activity {
 
     SeekBar.OnSeekBarChangeListener seekBarListener =
             new SeekBar.OnSeekBarChangeListener() {
+
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                     updateImageView();
